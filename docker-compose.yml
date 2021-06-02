@@ -4,6 +4,8 @@ services:
     build:
       dockerfile: Dockerfile # dockerfile이름
       context: ./ # 도커파일 위치 명시
+    image: streaming-ms-front
+    container_name: streaming-ms-front
     volumes:
       - /app/node_modules #도커 /app/node_modules는 맵핑을 따로 안해주겠다.
       - ./:/app # 로컬에 있는 모든 파일을 맵핑

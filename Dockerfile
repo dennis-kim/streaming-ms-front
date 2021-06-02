@@ -1,10 +1,11 @@
-FROM node:10.17.0
-WORKDIR /app
-COPY ./package*.json ./
-RUN yarn install
-COPY . .
-RUN yarn build
+FROM node:10.17.0 AS build-env
+WORKDIR /app 
+COPY ./package*.json ./ 
+RUN npm install 
+COPY . . 
+RUN npm run build
+
 
 FROM nginx 
-COPY ./defalut*.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/build  /usr/share/nginx/html
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-env /app/build  /usr/share/nginx/html
