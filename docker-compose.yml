@@ -1,0 +1,12 @@
+version: "3"
+services:
+  streaming-ms-front:
+    build:
+      dockerfile: Dockerfile # dockerfile이름
+      context: ./ # 도커파일 위치 명시
+    volumes:
+      - /app/node_modules #도커 /app/node_modules는 맵핑을 따로 안해주겠다.
+      - ./:/app # 로컬에 있는 모든 파일을 맵핑
+    ports:
+      - "9000:9000"
+    stdin_open: true
