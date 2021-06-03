@@ -4,15 +4,15 @@ import TopBar from "./container/TopBar/TopBar";
 import './style.css'
 
 const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" })
+  const isDesktop = useMediaQuery({ query: "(min-width: 769px)" })
   return isDesktop ? children : null
 }
 const Tablet = ({ children }) => {
-  const isTablet = useMediaQuery({ query: "(min-width:768px) and (max-width:1023px)" })
+  const isTablet = useMediaQuery({ query: "(min-width:361px) and (max-width:768px)" })
   return isTablet ? children : null
 }
 const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ query: "(max-width:767px)" })
+  const isMobile = useMediaQuery({ query: "(max-width:360px)" })
   return isMobile ? children : null
 }
 
