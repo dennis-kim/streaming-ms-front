@@ -14,12 +14,12 @@ class SearchBar extends Component {
     }
     render() {
         return (
-            <div className="App">
-                <div className="container">
-                    <input ref={input => this.input = input}
-                        className={['input', this.state.focused && 'input-focused'].join(' ')}
-                    />
-                </div>
+            <div className="container">
+                <input ref={input => this.input = input}
+                    style={{margin: '10px'}}
+                    placeholder={'search..'}
+                    className={['input', this.state.focused && 'input-focused'].join(' ')}
+                />
             </div>
         );
     }
