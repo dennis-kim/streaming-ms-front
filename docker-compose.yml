@@ -2,8 +2,8 @@ version: "3"
 services:
   streaming-ms-front:
     build:
-      dockerfile: Dockerfile # dockerfile이름
-      context: ./ # 도커파일 위치 명시
+      dockerfile: Dockerfile
+      context: ./
     image: streaming-ms-front
     container_name: streaming-ms-front
     volumes:
