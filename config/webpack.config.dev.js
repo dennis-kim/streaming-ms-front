@@ -13,7 +13,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, "../build"),
     index: "index.html",
-    port: 9000
+    port: 48080
   },
   module: {
     rules: [
