@@ -6,6 +6,10 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+ul, li{
+    list-style:none;
+}
+
 .title {
 	color: #2196f3;
     font-size: 52px;

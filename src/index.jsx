@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import listReducer from './container/ListStreaming/reducer';
+import ContentsListReducer from './container/ContentsList/reducer';
 import App from "./App";
 
 const rootReducer = combineReducers({
-    listStreaming : listReducer,
+    contentsListReducer : ContentsListReducer,
 });
 
 const store = createStore(rootReducer);

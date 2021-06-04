@@ -1,7 +1,7 @@
-import * as directoryAPi from './directoryApi';
+import * as contentsApi from './contentsApi';
 
 const api = {
-    ...directoryAPi
+    ...contentsApi
 }
 
 export default api;
