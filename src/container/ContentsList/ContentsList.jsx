@@ -10,21 +10,19 @@ const ContentsList = () => {
                 <div>
                     <ul className="gallery_list">
                         <li>
-                            <ContentsItem />
-                        </li>
-
-                        <li>
-                            <ContentsItem />
+                            <ContentsItem contentsName="아이언맨1"/>
                         </li>
                         <li>
-                            <ContentsItem />
+                            <ContentsItem contentsName="아이언맨2"/>
                         </li>
                         <li>
-                            <ContentsItem />
+                            <ContentsItem contentsName="아이언맨3"/>
                         </li>
-
                         <li>
-                            <ContentsItem />
+                            <ContentsItem contentsName="아이언맨4"/>
+                        </li>
+                        <li>
+                            <ContentsItem contentsName="아이언맨5"/>
                         </li>
                         
                     </ul>

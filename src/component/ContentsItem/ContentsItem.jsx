@@ -1,14 +1,13 @@
 import React from "react"
 import './style.css'
-import sampleImg from './images/p_images/sub_gallery_01.jpg'
+import DefaultImage from './images/default.jpg'
 
-const ContentsItem = ({  }) => {
-    
+const ContentsItem = ({ contentsName }) => {
     
         return (
             <div className="item_a">
-                <img src={sampleImg} alt=""/>
-                <div style={{width:'100%', background:'red'}}>aaa</div>
+                <img src={DefaultImage} alt=""/>
+                <div style={{background:'red', width:'100%'}}>{contentsName}</div>
             </div>
         );
     
