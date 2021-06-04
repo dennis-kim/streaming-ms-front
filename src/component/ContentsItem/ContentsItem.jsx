@@ -6,8 +6,9 @@ const ContentsItem = ({  }) => {
     
     
         return (
-            <div>
+            <div className="item_a">
                 <img src={sampleImg} alt=""/>
+                <div style={{width:'100%', background:'red'}}>aaa</div>
             </div>
         );
     

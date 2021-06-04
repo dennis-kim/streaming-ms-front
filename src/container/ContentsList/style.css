@@ -1,28 +1,11 @@
 /* 모바일용 CSS */
 /* 기본 CSS */
-ul, li{
-    list-style:none;
-}
-        
+
     /* 콘텐츠 영역 CSS */
     .content_section{
     order:4;
     padding:20px;
     padding:1.250rem;
-    }
-    
-    .gallery_list img{
-    width:100%;
-    max-width:100%;
-    border-radius:5px;
-    transition:all 0.4s;
-    -webkit-filter:grayscale(1);
-    filter:grayscale(1);
-    }
-    
-    .gallery_list img:hover{
-    -webkit-filter:grayscale(0);
-    filter:grayscale(0);
     }
     
     .gallery_list li{
