@@ -13,7 +13,8 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, "../build"),
     index: "index.html",
-    port: 8080
+    port: 8080,
+    historyApiFallback: true
   },
   module: {
     rules: [

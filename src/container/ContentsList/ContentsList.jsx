@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom'
 import './style.css'
 import ContentsItem from '../../component/ContentsItem/ContentsItem'
 import API from '../../api'
 
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+
 const ContentsList = () => {
+    const query = useQuery();
+    // console.log("ppp: ", query.get("ppp"))
     const [contents, setContents] = useState([]);
     
     useEffect(() => {
