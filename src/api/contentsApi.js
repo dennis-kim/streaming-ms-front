@@ -8,8 +8,20 @@ function getHeaders() {
     };
 }
 
-export function getContents() {
-  return axios.get(
-    `http://118.34.135.195:9000/contents/1`
-  );
+export function getContents(baseId) {
+  const headers = getHeaders();
+  const url = `http://118.34.135.195:9000/contents/${baseId}`;
+  const params = {
+    nana:'value333'
+  }
+
+  return new Promise((resolve, reject) => {
+    axios.get(url, {params, headers})
+    .then((res) => {
+      resolve(res.data)
+    })
+    .catch((e) => {
+      reject(e)
+    })
+  })
 }

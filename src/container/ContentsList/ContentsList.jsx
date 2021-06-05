@@ -1,53 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './style.css'
-import { useDispatch, useSelector } from 'react-redux';
 import ContentsItem from '../../component/ContentsItem/ContentsItem'
-import allAction from './action/index';
+import API from '../../api'
 
 const ContentsList = () => {
+    const [contents, setContents] = useState([]);
     
-    const result = useSelector(state =>  state.couriers);
-    const res = useSelector(state => (
-        {
-            couriers: state.couriers
-        }
-    ))
-    
-    const dispatch = useDispatch();
-
     useEffect(() => {
-        dispatch(allAction.loadCourier());
-        console.log('aaa:', res)
+        API.getContents(4)
+        .then((result) => {
+            console.log(result)
+            setContents(result)
+        })
+        .catch((e) => {
+            console.log('error')
+        })  
     }, []);
 
-    
-
-
-    
-
-
- 
     return (
         <>
             <section className="content_section">
                 <div>
                     <ul className="gallery_list">
-                        <li>
-                            <ContentsItem contentsName="아이언맨1"/>
-                        </li>
-                        <li>
-                            <ContentsItem contentsName="아이언맨2"/>
-                        </li>
-                        <li>
-                            <ContentsItem contentsName="아이언맨3"/>
-                        </li>
-                        <li>
-                            <ContentsItem contentsName="아이언맨4"/>
-                        </li>
-                        <li>
-                            <ContentsItem contentsName="아이언맨5"/>
-                        </li>
-                        
+                        {
+                            contents.map((item, index ) => {
+                                return (
+                                <li>
+                                    <ContentsItem key={index+1} contentsName={item[0]}/>
+                                </li>
+                                )
+                            })
+                        }
                     </ul>
                 </div>
             </section>
