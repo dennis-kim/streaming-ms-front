@@ -1,7 +1,8 @@
-import React from "react"
-import './style.css'
-import DefaultImage from './images/default.jpg'
-import IronmanImage from './images/ironman.jpeg'
+import React from "react";
+import './style.css';
+import PropTypes from 'prop-types';
+import DefaultImage from './images/default.jpg';
+import IronmanImage from './images/ironman.jpeg';
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,20 +21,20 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ contentsName }) => {
+const ContentsItem = ({ index, contentsName }) => {
     const classes = useStyles();
         return (
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
                     className={classes.media}
-                    image={IronmanImage}
+                    image={ index == 0 ? IronmanImage : DefaultImage}
                     title="Contemplative Reptile"
                     />
                     <CardContent>
-                    {/* <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h2">
                         {contentsName}
-                    </Typography> */}
+                    </Typography>
                     
                     <Typography variant="body2" color="textSecondary" component="p">
                         {contentsName}
@@ -45,4 +46,14 @@ const ContentsItem = ({ contentsName }) => {
         );
     
 }
+
+ContentsItem.propType = {
+    index: PropTypes.number,
+    contentsName: PropTypes.string
+}
+
+ContentsItem.defaultProps = {
+
+}
+
 export default ContentsItem;

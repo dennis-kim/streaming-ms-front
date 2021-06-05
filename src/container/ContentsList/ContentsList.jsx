@@ -9,7 +9,6 @@ const ContentsList = () => {
     useEffect(() => {
         API.getContents(4)
         .then((result) => {
-            console.log(result)
             setContents(result)
         })
         .catch((e) => {
@@ -23,10 +22,10 @@ const ContentsList = () => {
                 <div>
                     <ul className="gallery_list">
                         {
-                            contents.map((item) => {
+                            contents.map((item, i) => {
                                 return (
-                                <li>
-                                    <ContentsItem contentsName={item[0]}/>
+                                <li key={i}>
+                                    <ContentsItem key={i} index={i} contentsName={item[0]}/>
                                 </li>
                                 )
                             })
