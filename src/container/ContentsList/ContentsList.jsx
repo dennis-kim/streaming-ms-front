@@ -23,10 +23,10 @@ const ContentsList = () => {
                 <div>
                     <ul className="gallery_list">
                         {
-                            contents.map((item, index ) => {
+                            contents.map((item) => {
                                 return (
                                 <li>
-                                    <ContentsItem key={index+1} contentsName={item[0]}/>
+                                    <ContentsItem contentsName={item[0]}/>
                                 </li>
                                 )
                             })
