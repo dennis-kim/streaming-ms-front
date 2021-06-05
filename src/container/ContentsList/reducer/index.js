@@ -1,8 +1,8 @@
-import * as ContentsListAction from '../action';
+import couriers from './ContentsListReducer';
+import { combineReducers } from 'redux';
 
-const initialState = {
-}
+const rootReducer = combineReducers({
+    couriers
+});
 
-export default function ContentsListReducer(state = initialState, action) {
-    return state;
-}
+export default rootReducer;
