@@ -2,17 +2,28 @@ import React, { useEffect } from "react";
 import './style.css'
 import { useDispatch, useSelector } from 'react-redux';
 import ContentsItem from '../../component/ContentsItem/ContentsItem'
-
 import allAction from './action/index';
 
 const ContentsList = () => {
-    const result = useSelector(state => state.couriers);
+    
+    const result = useSelector(state =>  state.couriers);
+    const res = useSelector(state => (
+        {
+            couriers: state.couriers
+        }
+    ))
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(allAction.loadCourier());
+        console.log('aaa:', res)
     }, []);
 
+    
+
+
+    
 
 
  
@@ -39,7 +50,7 @@ const ContentsList = () => {
                         
                     </ul>
                 </div>
-            </section>            
+            </section>
         </>
     );
 }

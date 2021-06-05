@@ -1,8 +1,10 @@
+import * as actionType from '../../../types/actionTypes';
+
 const couriers = (state = [], action) => {
     switch(action.type){
-        case "LOAD_COURIER_SUCCESS":
+        case actionType.LOAD_CONTENTS_SUCCESS:
             return [...state, ...action.couriers];
-        case "LOAD_COURIER_FAIL":
+        case actionType.LOAD_CONTENTS_FAIL:
             return [...state, action.error];
         default:
             return state;
