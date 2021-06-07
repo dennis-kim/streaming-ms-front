@@ -8,11 +8,12 @@ function getHeaders() {
     };
 }
 
-export function getContents(baseId) {
+export function getContents(baseId, sort, order) {
   const headers = getHeaders();
   const url = `http://118.34.135.195:9000/contents/${baseId}`;
   const params = {
-    nana:'value333'
+    sort: sort,
+    order: order
   }
 
   return new Promise((resolve, reject) => {

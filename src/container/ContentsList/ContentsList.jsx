@@ -14,7 +14,7 @@ const ContentsList = () => {
     const [contents, setContents] = useState([]);
     
     useEffect(() => {
-        API.getContents(4)
+        API.getContents(4, 'modify_date', 'desc')
         .then((result) => {
             setContents(result)
         })
