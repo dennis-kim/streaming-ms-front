@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom'
 import './style.css'
+import PropTypes from 'prop-types';
 import ContentsItem from '../../component/ContentsItem/ContentsItem'
 import API from '../../api'
 
@@ -8,9 +9,8 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
-const ContentsList = () => {
+const ContentsList = ({match}) => {
     const query = useQuery();
-    // console.log("ppp: ", query.get("ppp"))
     const [contents, setContents] = useState([]);
     
     useEffect(() => {
@@ -21,8 +21,13 @@ const ContentsList = () => {
         .catch((e) => {
             console.log('error')
         })  
+
+        
     }, []);
 
+    if("/" === match.url){
+        document.location.href = '/contents'
+    }
     return (
         <>
             <section className="content_section">
@@ -42,6 +47,19 @@ const ContentsList = () => {
             </section>
         </>
     );
+}
+
+ContentsList.propType = {
+    match: PropTypes.shape({
+        url: PropTypes.string,
+        params: PropTypes.shape({
+            baseId : PropTypes.number
+        })
+    })
+}
+
+ContentsList.defaultProps = {
+
 }
   
 export default ContentsList;

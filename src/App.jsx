@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
   Route
 } from 'react-router-dom'
 import TopBar from "./container/TopBar/TopBar";
@@ -13,14 +12,9 @@ const App = () => {
   return (
     <>
       <TopBar />
-
-      <Router>
-          <Switch>
-            <Route exact path={["/", "/contents/:baseId"]}>
-              <ContentsList/>
-            </Route>
-          </Switch>
-      </Router>
+      <BrowserRouter>
+        <Route exact path={["/", "/contents", "/contents/:baseId"]} component={ContentsList} />
+      </BrowserRouter>
     </>
   );
 }
