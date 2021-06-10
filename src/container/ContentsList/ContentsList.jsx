@@ -37,6 +37,8 @@ const ContentsList = ({match}) => {
     
     /* fake async fetch */
     const fakeFetch = (delay = 1000) => new Promise(res => setTimeout(res, delay));
+
+
     const [state, setState] = useState({ itemCount: 0, isLoading: false });
     const fetchItems = async () => {
         setState(prev => ({ ...prev, isLoading: true }));
@@ -47,77 +49,46 @@ const ContentsList = ({match}) => {
         }));
     };
 
-
-
-
-
-
-
     useEffect(() => {
-        getContents(4)
+        // getContents(4)
         fetchItems();
     }, []);
-
-
-
 
     const [_, setRef] = useIntersect(async (entry, observer) => {
         observer.unobserve(entry.target);
         await fetchItems();
         observer.observe(entry.target);
       }, {});
+
     const { itemCount, isLoading } = state;
     if (!itemCount) return null;
-
-
-
 
     if("/" === match.url){
         document.location.href = '/contents'
     }
     
-
-    
-
-
-    const ListItem = ({ number }) => (
-        <div className="ListItem">
-          <span>{number}</span>
-        </div>
-      );
-
     return (
         <>
-            {/* <section className="content_section">
+            <section className="content_section">
                 <div>
                     <ul className="gallery_list">
-                        {
-                            contents.map((item, i) => {
+
+
+                        {[...Array(itemCount)].map((_, i) => {
                                 return (
-                                <li key={i}>
-                                    <ContentsItem key={i} index={i} contentsName={item[0]}/>
-                                </li>
+                                    <li key={i}>
+                                        <ContentsItem key={i} index={i} contentsName={'하이'+i}/>
+                                    </li>
                                 )
-                            })
-                        }
+                                
+                            })}
                     </ul>
                 </div>
-            </section> */}
+                <div ref={setRef} className="Loading">
+                    {isLoading && "Loading..."}
+                </div>
+            </section>
 
-<div className="App">
-      {[...Array(itemCount)].map((_, i) => {
-        return (
-            // contents.length > 0 ?
-            // getContents(4, sort, order, page, size) : <></>
-            // console.log('aaa') : console.log('bbb')
-            <ListItem key={i} number={i} />
-        )
-        
-      })}
-      <div ref={setRef} className="Loading">
-        {isLoading && "Loading..."}
-      </div>
-    </div>
         </>
     );
 }
