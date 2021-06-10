@@ -39,11 +39,17 @@ const ContentsList = ({match}) => {
     const fakeFetch = (delay = 1000) => new Promise(res => setTimeout(res, delay));
 
 
-    const [state, setState] = useState({ itemCount: 0, isLoading: false });
+    const [intersectState, setIntersectState] = useState(
+        { 
+            itemCount: 0, 
+            isLoading: false 
+        }
+    );
+
     const fetchItems = async () => {
-        setState(prev => ({ ...prev, isLoading: true }));
+        setIntersectState(prev => ({ ...prev, isLoading: true }));
         await fakeFetch();
-        setState(prev => ({
+        setIntersectState(prev => ({
         itemCount: prev.itemCount + 10,
         isLoading: false
         }));
@@ -60,7 +66,7 @@ const ContentsList = ({match}) => {
         observer.observe(entry.target);
       }, {});
 
-    const { itemCount, isLoading } = state;
+    const { itemCount, isLoading } = intersectState;
     if (!itemCount) return null;
 
     if("/" === match.url){
