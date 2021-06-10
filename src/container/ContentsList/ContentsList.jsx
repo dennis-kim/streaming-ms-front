@@ -34,6 +34,10 @@ const ContentsList = ({match}) => {
         setPage(page+1)
     }
     
+    const sample  = [
+        ['aaa']
+
+    ]
     
     /* fake async fetch */
     const fakeFetch = (delay = 1000) => new Promise(res => setTimeout(res, delay));
@@ -41,7 +45,7 @@ const ContentsList = ({match}) => {
 
     const [intersectState, setIntersectState] = useState(
         { 
-            itemCount: 0, 
+            itemCount: sample, 
             isLoading: false 
         }
     );
@@ -50,7 +54,7 @@ const ContentsList = ({match}) => {
         setIntersectState(prev => ({ ...prev, isLoading: true }));
         await fakeFetch();
         setIntersectState(prev => ({
-        itemCount: prev.itemCount + 10,
+        itemCount: itemCount.push(sample),
         isLoading: false
         }));
     };
@@ -83,7 +87,7 @@ const ContentsList = ({match}) => {
                         {[...Array(itemCount)].map((_, i) => {
                                 return (
                                     <li key={i}>
-                                        <ContentsItem key={i} index={i} contentsName={'하이'+i}/>
+                                        <ContentsItem key={i} index={i} contentsName={i}/>
                                     </li>
                                 )
                                 
