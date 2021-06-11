@@ -35,8 +35,14 @@ const ContentsList = ({match}) => {
     }
     
     const sample  = [
-        ['aaa']
-
+        ['aaa'],
+        ['bbb'],
+        ['ccc'],
+        ['ddd'],
+        ['eee'],
+        ['fff'],
+        ['ggg'],
+        ['hhh']
     ]
     
     /* fake async fetch */
@@ -45,7 +51,7 @@ const ContentsList = ({match}) => {
 
     const [intersectState, setIntersectState] = useState(
         { 
-            itemCount: sample, 
+            itemCount: sample,
             isLoading: false 
         }
     );
@@ -53,10 +59,14 @@ const ContentsList = ({match}) => {
     const fetchItems = async () => {
         setIntersectState(prev => ({ ...prev, isLoading: true }));
         await fakeFetch();
+
+
+        // this.setState({ myArray: [...this.state.myArray, 'new value'] })
         setIntersectState(prev => ({
         itemCount: itemCount.push(sample),
         isLoading: false
         }));
+        // console.log('###', itemCount.length)
     };
 
     useEffect(() => {
@@ -86,6 +96,7 @@ const ContentsList = ({match}) => {
 
                         {[...Array(itemCount)].map((_, i) => {
                                 return (
+                                    
                                     <li key={i}>
                                         <ContentsItem key={i} index={i} contentsName={i}/>
                                     </li>
