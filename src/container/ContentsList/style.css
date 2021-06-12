@@ -33,12 +33,13 @@
     .gallery_list{
     display:flex;
     flex-wrap:wrap;
-    justify-content:space-between;
+    /* justify-content:center; */
     }
     
     .gallery_list li{
     width:48.54651162790698%;
     /* 334px ÷ 688px */
+    margin-right: 10px;
     }
     
     .gallery_list li:nth-child(2){
@@ -65,6 +66,7 @@
     /* 201px ÷ 840px */
     margin-top:12px;
     margin-top:0.750rem;
+    margin-right: 10px;
     }
     
     .gallery_list li:nth-child(3), .gallery_list li:nth-child(4){
