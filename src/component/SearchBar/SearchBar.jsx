@@ -14,7 +14,7 @@ class SearchBar extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="searchbar_container">
                 <input ref={input => this.input = input}
                     style={{margin: '10px'}}
                     placeholder={'search..'}

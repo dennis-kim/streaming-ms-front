@@ -1,0 +1,8 @@
+.topbar_container {
+    background-color: rgb(174, 225, 255);
+}
+
+.menu_box {
+    justify-content:space-between;
+    display: flex;
+}

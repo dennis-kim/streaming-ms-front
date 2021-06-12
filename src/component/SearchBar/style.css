@@ -1,3 +1,6 @@
+.searchbar_container {
+}
+
 .input {
     transition: width .20s linear;
     outline: none;
