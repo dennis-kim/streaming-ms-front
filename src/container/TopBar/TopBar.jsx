@@ -7,7 +7,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 
 const TopBar = () => {
-    const [hideOfFilter, setHideOfFilter] = useState(false)
+    const [hideOfFilter, setHideOfFilter] = useState(true)
     
     const switchOfFilter = () => {
         setHideOfFilter(!hideOfFilter)
