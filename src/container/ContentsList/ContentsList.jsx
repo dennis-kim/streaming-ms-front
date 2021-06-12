@@ -12,66 +12,44 @@ function useQuery() {
 
 const ContentsList = ({match}) => {
     const query = useQuery();
-    const [page, setPage] = useState('1');
-    const [size, setSize] = useState('40');
+    const [size, setSize] = useState(20);
     const [sort, setSort] = useState('modify_date');
     const [order, setOrder] = useState('desc');
 
-    // const [contents, setContents] = useState([]);
-
-
-
-    // const getContents = (baseId) => {
-    //     API.getContents(4, sort, order, page, size)
-    //     .then((result) => {
-    //         setContents(result)
-    //         console.log('api')
-    //     })
-    //     .catch((e) => {
-    //         console.log('err')
-    //     })
-
-    //     setPage(page+1)
-    // }
-    
-    const sample  = [
-        {
-            contents_name: '승리호'
-        },
-        {
-            contents_name: '아이언맨'
-        },
-        {
-            contents_name: '어벤져스'
-        },
-        {
-            contents_name: '감자'
-        },
-    ]
-    
     /* fake async fetch */
-    const fakeFetch = (delay = 500) => new Promise(res => setTimeout(res, delay));
+    const fakeFetch = (delay = 1000) => new Promise(res => setTimeout(res, delay));
 
 
     const [intersectState, setIntersectState] = useState(
         { 
             contents: [],
-            isLoading: false 
+            isLoading: false ,
+            page: 1,
         }
     );
 
     const fetchItems = async () => {
-        setIntersectState(prev => ({ ...prev, isLoading: true }));
+        setIntersectState(prev => ({ ...prev, isLoading: true, page: 10}));
+        
         await fakeFetch();
+        
+        API.getContents(4, sort, order, intersectState.page, size)
+        .then((result) => {
+            setIntersectState(prev => ({
+                contents: contents.push(...result),
+                isLoading: false,
+                page: 30
+            }));
+            
+        })
+        .catch((e) => {
+            console.log('err:', e)
+        })
 
-        setIntersectState(prev => ({
-            contents: contents.push(...sample),
-            isLoading: false
-        }));
+        
     };
 
     useEffect(() => {
-        // getContents(4)
         fetchItems();
     }, []);
 
@@ -96,7 +74,7 @@ const ContentsList = ({match}) => {
                         {[...Array(contents)].map((_, i) => {
                             return (
                                 <li key={i}>
-                                    <ContentsItem key={i} index={i} contentsName={i}/>
+                                    <ContentsItem key={i} index={i} contentsName={contents.length}/>
                                 </li>
                             )
                         })}
