@@ -21,8 +21,8 @@ const TopBar = () => {
                     <SearchBar/>
                     {
                         hideOfFilter ? 
-                        <ArrowDropDownIcon style={{fontSize: 40}} onClick={switchOfFilter}/>
-                        : <ArrowDropUpIcon style={{fontSize: 40}} onClick={switchOfFilter}/>
+                        <ArrowDropDownIcon style={{fontSize: 40, cursor:'pointer'}} onClick={switchOfFilter}/>
+                        : <ArrowDropUpIcon style={{fontSize: 40, cursor:'pointer'}} onClick={switchOfFilter}/>
                     }
                 </div>
                 <div style={{ display: hideOfFilter ? 'none' : '' }}>
