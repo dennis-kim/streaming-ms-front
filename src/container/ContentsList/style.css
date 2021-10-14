@@ -20,7 +20,7 @@
     
     
     /* 태블릿용 CSS */
-@media all and (min-width:321px){
+@media all and (min-width:100px){
     /* 헤더 영역 CSS */
     
     
@@ -83,4 +83,4 @@
 
 .Loading {
     height: 60px;
-  }
+}

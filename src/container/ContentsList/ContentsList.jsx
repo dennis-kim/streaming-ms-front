@@ -74,7 +74,8 @@ const ContentsList = ({match}) => {
                         {[...Array(contents)].map((_, i) => {
                             return (
                                 <li key={i}>
-                                    <ContentsItem key={i} index={i} contentsName={contents.length}/>
+                                    {/* <ContentsItem key={i} index={i} contentsName={contents.length}/> */}
+                                    <ContentsItem key={i} index={i} contentsName={"contentsName"}/>
                                 </li>
                             )
                         })}

@@ -4,7 +4,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
-    background-color: #e6ffff;
+    background-color: #000000;
 }
 
 ul, li{
@@ -15,4 +15,18 @@ ul, li{
 	color: #2196f3;
     font-size: 52px;
     text-align: center;
+}
+
+@font-face {
+    font-family: "DOHYEON";
+    src: url('./fonts/DoHyeon-Regular.ttf');
+}
+
+#FontTitle {
+    /* margin-top: 140px; */
+    /* left: 59%; */
+    /* position: absolute; */
+    font-family: "DOHYEON";
+    color: rgb(255, 0, 0);
+    font-size: 30px;
 }

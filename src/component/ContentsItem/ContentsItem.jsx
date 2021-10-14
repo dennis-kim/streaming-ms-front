@@ -14,7 +14,9 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+    //   maxWidth: 345,
+      width: 345,
+      marginRight: '20px'
     },
     media: {
       height: 140,
@@ -33,11 +35,15 @@ const ContentsItem = ({ index, contentsName }) => {
                     />
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {contentsName}
+                    {/* {contentsName} */}
+                        아이언맨
                     </Typography>
                     
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {contentsName}
+                        {/* {contentsName} */}
+                        2011 액션<br/>
+                        엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
+                        영화&gt;2011
                     </Typography> 
                     
                     </CardContent>
