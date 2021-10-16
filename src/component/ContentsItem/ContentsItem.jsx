@@ -23,20 +23,39 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ index, contentsName }) => {
+const ContentsItem = ({ index, contentsName, categoryHide }) => {
     const classes = useStyles();
         return (
+            <>
+            
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
                     className={classes.media}
                     image={ index == 0 ? IronmanImage : DefaultImage}
                     title="Contemplative Reptile"
-                    />
+                    >
+                        {
+                            categoryHide ? <></> : 
+                            <div
+                                style={{
+                                    display: "inline-flex",
+                                    background: "#ffffff",
+                                    opacity: 0.5,
+                                    textAlign: "center",
+                                    padding: "10px",
+                                    borderRadius: "10px 10px",
+                                    fontWeight: "bold"
+
+                                }} >
+                                다큐멘터리
+                            </div>
+                        }
+                    </CardMedia>
+                    
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                    {/* {contentsName} */}
-                        아이언맨
+                        {contentsName}
                     </Typography>
                     
                     <Typography variant="body2" color="textSecondary" component="p">
@@ -49,6 +68,7 @@ const ContentsItem = ({ index, contentsName }) => {
                     </CardContent>
                 </CardActionArea>
             </Card>
+            </>
         );
     
 }
@@ -59,7 +79,8 @@ ContentsItem.propType = {
 }
 
 ContentsItem.defaultProps = {
-
+    contentsName: '',
+    categoryHide: true
 }
 
 export default ContentsItem;

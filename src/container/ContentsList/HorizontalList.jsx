@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import ContentsItem from '../../component/ContentsItem/ContentsItem';
 import ArrowLeftIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -9,7 +10,7 @@ const getItems = () =>
     .fill(0)
     .map((_, ind) => ({ id: `element-${ind}` }));
 
-function HorizontalList() {
+const HorizontalList = ( {categoryId} ) => {
   const [items, setItems] = React.useState(getItems);
   const [selected, setSelected] = React.useState([]);
   const [position, setPosition] = React.useState(0);
@@ -32,40 +33,22 @@ function HorizontalList() {
           RightArrow={RightArrow}
           // onWheel
         >
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
-          <ContentsItem key={0} index={0} contentsName={"contentsName"}/>
+          <ContentsItem key={0} index={0} contentsName={"아이언맨"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"어벤져스1"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"어벤져스2"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"어벤져스3"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
+          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
 
         </ScrollMenu>
   );
 }
 
-function LeftArrow() {
+const LeftArrow = () => {
   const { isFirstItemVisible, scrollPrev } = React.useContext(VisibilityContext)
 
   return (
@@ -77,7 +60,7 @@ function LeftArrow() {
   );
 }
 
-function RightArrow() {
+const RightArrow = () => {
   const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext)
 
   return (
@@ -87,6 +70,14 @@ function RightArrow() {
     // //   Right
     // // </Arrow>
   );
+}
+
+HorizontalList.propType = {
+  categoryId: PropTypes.number
+}
+
+HorizontalList.defaultProps = {
+  categoryId: 0
 }
 
 export default HorizontalList;

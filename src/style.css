@@ -21,12 +21,3 @@ ul, li{
     font-family: "DOHYEON";
     src: url('./fonts/DoHyeon-Regular.ttf');
 }
-
-#FontTitle {
-    /* margin-top: 140px; */
-    /* left: 59%; */
-    /* position: absolute; */
-    font-family: "DOHYEON";
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-}
