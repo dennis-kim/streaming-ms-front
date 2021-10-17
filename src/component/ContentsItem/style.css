@@ -1,0 +1,10 @@
+#categoryNameCard {
+    display: inline-flex;
+    background: #ffffff;
+    opacity: 0.5;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 0px 10px 10px 0px;
+    font-weight: bold;
+}

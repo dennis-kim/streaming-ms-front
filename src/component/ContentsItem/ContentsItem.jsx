@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ index, contentsName, categoryHide }) => {
+const ContentsItem = ({ index, contentsName, categoryName, categoryHide }) => {
     const classes = useStyles();
         return (
             <>
@@ -37,18 +37,8 @@ const ContentsItem = ({ index, contentsName, categoryHide }) => {
                     >
                         {
                             categoryHide ? <></> : 
-                            <div
-                                style={{
-                                    display: "inline-flex",
-                                    background: "#ffffff",
-                                    opacity: 0.5,
-                                    textAlign: "center",
-                                    padding: "10px",
-                                    borderRadius: "10px 10px",
-                                    fontWeight: "bold"
-
-                                }} >
-                                다큐멘터리
+                            <div id="categoryNameCard">
+                                영화
                             </div>
                         }
                     </CardMedia>
@@ -75,11 +65,13 @@ const ContentsItem = ({ index, contentsName, categoryHide }) => {
 
 ContentsItem.propType = {
     index: PropTypes.number,
-    contentsName: PropTypes.string
+    contentsName: PropTypes.string,
+    categoryName : PropTypes.string
 }
 
 ContentsItem.defaultProps = {
     contentsName: '',
+    categoryName: '',
     categoryHide: true
 }
 
