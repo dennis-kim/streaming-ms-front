@@ -38,7 +38,7 @@ const ContentsItem = ({ index, contentsName, categoryName, categoryHide }) => {
                         {
                             categoryHide ? <></> : 
                             <div id="categoryNameCard">
-                                영화
+                                {categoryName}
                             </div>
                         }
                     </CardMedia>

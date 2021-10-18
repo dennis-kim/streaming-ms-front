@@ -10,9 +10,11 @@ function getHeaders() {
 
 function parseContents(item) {
   const contentsName = item.contents_name;
+  const categoryName = item.category_name;
 
   return {
     contentsName,
+    categoryName,
   };
 }
 
@@ -31,6 +33,7 @@ export function getContents(categoryId, sort, order,
     page='1', size='10') {
   const headers = getHeaders();
   const url = `http://118.34.135.195:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
+  // const url = `http://localhost:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
   const params = {
     sort: sort,
     order: order
@@ -56,6 +59,7 @@ export function getContentsNew(categoryId, sort, order,
   page='1', size='10') {
     const headers = getHeaders();
     const url = `http://118.34.135.195:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
+    // const url = `http://localhost:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
     const params = {
       sort: sort,
       order: order
