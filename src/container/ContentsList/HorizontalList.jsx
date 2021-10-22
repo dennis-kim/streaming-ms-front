@@ -89,7 +89,7 @@ const HorizontalList = ( { categoryId } ) => {
 
  */}
 
-          {contents.map((item) => <ContentsItem key={0} index={0} contentsName={item.contentsName} categoryName={item.categoryName} categoryHide={ categoryId > 0} /> )}
+          {contents.map((item) => <ContentsItem key={0} index={0} contentsName={item.contentsName} categoryName={item.categoryName} contentsPath={item.contentsPath} categoryHide={ categoryId > 0} /> )}
 
 
 

@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ index, contentsName, categoryName, categoryHide }) => {
+const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categoryHide }) => {
     const classes = useStyles();
         return (
             <>
@@ -52,7 +52,7 @@ const ContentsItem = ({ index, contentsName, categoryName, categoryHide }) => {
                         {/* {contentsName} */}
                         2011 액션<br/>
                         엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
-                        영화&gt;2011
+                        <div id="contentsPath">위치 : {contentsPath}</div>
                     </Typography> 
                     
                     </CardContent>
@@ -66,13 +66,15 @@ const ContentsItem = ({ index, contentsName, categoryName, categoryHide }) => {
 ContentsItem.propType = {
     index: PropTypes.number,
     contentsName: PropTypes.string,
-    categoryName : PropTypes.string
+    categoryName : PropTypes.string,
+    contentsPath : PropTypes.string
 }
 
 ContentsItem.defaultProps = {
     contentsName: '',
     categoryName: '',
-    categoryHide: true
+    categoryHide: true,
+    contentsPath: ''
 }
 
 export default ContentsItem;
