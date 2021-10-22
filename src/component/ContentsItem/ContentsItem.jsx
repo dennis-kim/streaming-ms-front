@@ -52,7 +52,7 @@ const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categor
                         {/* {contentsName} */}
                         2011 액션<br/>
                         엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
-                        <div id="contentsPath">위치 : {contentsPath}</div>
+                        <div id="contentsPath">위치: {contentsPath}</div>
                     </Typography> 
                     
                     </CardContent>
