@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categoryHide }) => {
+const ContentsItem = ({ index, item, categoryHide }) => {
     const classes = useStyles();
         return (
             <>
@@ -33,31 +33,31 @@ const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categor
                         <CardMedia
                             className={classes.media}
                             image={ index == 0 ? IronmanImage : DefaultImage}
-                            title="Contemplative Reptile"
+                            title={ item.contentsName }
                         >
                             {
                                 categoryHide ? <></> : 
                                 <div id="categoryNameCard">
-                                    {categoryName}
+                                    { item.categoryName }
                                 </div>
                             }
                         </CardMedia>
                         
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="h2" noWrap={true}>
-                                {contentsName}
+                                {item.contentsName}
                             </Typography>
 
                             <Typography variant="body2" color="textSecondary" component="p">
-                                2011 액션
+                                코미디
                             </Typography>
                             
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
+                                엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸
                             </Typography>
 
                             <Typography id="contentsPath" variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                위치: {contentsPath}
+                                위치: {item.contentsPath}
                             </Typography> 
                         
                         </CardContent>
@@ -70,16 +70,25 @@ const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categor
 
 ContentsItem.propType = {
     index: PropTypes.number,
-    contentsName: PropTypes.string,
-    categoryName : PropTypes.string,
-    contentsPath : PropTypes.string
+    item: PropTypes.objectOf(
+        PropTypes.shape({
+          contentsName: PropTypes.string,
+          categoryName: PropTypes.string,
+          contentsPath: PropTypes.string,
+          genre: PropTypes.string,
+        })
+    ),
+    categoryHide: PropTypes.bool,
 }
 
 ContentsItem.defaultProps = {
-    contentsName: '',
-    categoryName: '',
-    categoryHide: true,
-    contentsPath: ''
+    item: {
+        contentsName: '',
+        categoryName: '',
+        contentsPath: '',
+        genre: ''
+    },
+    categoryHide: true
 }
 
 export default ContentsItem;

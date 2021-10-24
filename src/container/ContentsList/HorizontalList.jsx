@@ -51,21 +51,7 @@ const HorizontalList = ( { categoryId, contents } ) => {
 
  */}
 
-          {contents.map((item) => <ContentsItem key={0} index={0} contentsName={item.contentsName} categoryName={item.categoryName} contentsPath={item.contentsPath} categoryHide={ categoryId > 0} /> )}
-
-
-
-          {/* <ContentsItem key={0} index={0} contentsName={"아이언맨"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"어벤져스1"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"어벤져스2"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"어벤져스3"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} />
-          <ContentsItem key={0} index={0} contentsName={"contentsName"} categoryHide={ categoryId > 0} /> */}
-
+          {contents.map((item) => <ContentsItem key={0} index={0} item={item} categoryHide={ categoryId > 0} /> )}
         </ScrollMenu>
   );
 }
@@ -96,13 +82,7 @@ const RightArrow = () => {
 
 HorizontalList.propType = {
   categoryId: PropTypes.number,
-  contents: PropTypes.arrayOf(
-    PropTypes.shape({
-      contentsName: PropTypes.string,
-      categoryName: PropTypes.string,
-      contentsPath: PropTypes.string,
-    })
-  )
+  contents: PropTypes.array
 }
 
 HorizontalList.defaultProps = {
