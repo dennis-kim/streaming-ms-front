@@ -17,7 +17,7 @@ const App = () => {
       <TopBar />
       <BrowserRouter>
         {/* <Route exact path={["/", "/contents", "/contents/:baseId"]} component={ContentsList} /> */}
-        <MainList categoryName={"신규컨텐츠"} categoryId={0} />
+        <MainList categoryName={"전체"} categoryId={0} />
         <MainList categoryName={"영화"} categoryId={4} />
         <MainList categoryName={"예능"} categoryId={2} />
         <MainList categoryName={"드라마"} categoryId={1} />

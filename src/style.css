@@ -4,7 +4,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
-    background-color: #000000;
+    /* background-color: #000000; */
+    background-image: url('./img/pattern/footer_lodyas.png');
+    padding-bottom: 50px;
 }
 
 ul, li{

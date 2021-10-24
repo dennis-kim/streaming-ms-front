@@ -28,36 +28,41 @@ const ContentsItem = ({ index, contentsName, categoryName, contentsPath, categor
         return (
             <>
             
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image={ index == 0 ? IronmanImage : DefaultImage}
-                    title="Contemplative Reptile"
-                    >
-                        {
-                            categoryHide ? <></> : 
-                            <div id="categoryNameCard">
-                                {categoryName}
-                            </div>
-                        }
-                    </CardMedia>
-                    
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {contentsName}
-                    </Typography>
-                    
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {/* {contentsName} */}
-                        2011 액션<br/>
-                        엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
-                        <div id="contentsPath">위치: {contentsPath}</div>
-                    </Typography> 
-                    
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+                <Card className={classes.root}>
+                    <CardActionArea>
+                        <CardMedia
+                            className={classes.media}
+                            image={ index == 0 ? IronmanImage : DefaultImage}
+                            title="Contemplative Reptile"
+                        >
+                            {
+                                categoryHide ? <></> : 
+                                <div id="categoryNameCard">
+                                    {categoryName}
+                                </div>
+                            }
+                        </CardMedia>
+                        
+                        <CardContent>
+                            <Typography gutterBottom variant="h6" component="h2" noWrap={true}>
+                                {contentsName}
+                            </Typography>
+
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                2011 액션
+                            </Typography>
+                            
+                            <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
+                                엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸<br/>
+                            </Typography>
+
+                            <Typography id="contentsPath" variant="body2" color="textSecondary" component="p" noWrap={true}>
+                                위치: {contentsPath}
+                            </Typography> 
+                        
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
             </>
         );
     

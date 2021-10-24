@@ -4,6 +4,7 @@ import FilterBox from '../../component/FilterBox/FilterBox'
 import SearchBar from "../../component/SearchBar/SearchBar"
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import { rgbToHex } from "@material-ui/core";
 
 
 const TopBar = () => {
@@ -21,8 +22,8 @@ const TopBar = () => {
                     <SearchBar/>
                     {
                         hideOfFilter ? 
-                        <ArrowDropDownIcon style={{fontSize: 40, cursor:'pointer'}} onClick={switchOfFilter}/>
-                        : <ArrowDropUpIcon style={{fontSize: 40, cursor:'pointer'}} onClick={switchOfFilter}/>
+                        <ArrowDropDownIcon id="ArrowIcon" onClick={switchOfFilter}/>
+                        : <ArrowDropUpIcon id="ArrowIcon" onClick={switchOfFilter}/>
                     }
                 </div>
                 <div style={{ display: hideOfFilter ? 'none' : '' }}>
