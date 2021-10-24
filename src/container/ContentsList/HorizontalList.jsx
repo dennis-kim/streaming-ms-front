@@ -12,17 +12,10 @@ import API from '../../api'
 //     .fill(0)
 //     .map((_, ind) => ({ id: `element-${ind}` }));
 
-const HorizontalList = ( { categoryId } ) => {
+const HorizontalList = ( { categoryId, contents } ) => {
   // const [items, setItems] = React.useState(getItems);
   // const [selected, setSelected] = React.useState([]);
   // const [position, setPosition] = React.useState(0);
-
-
-
-  const [contents, setContents] = React.useState([]);
-  const [size, setSize] = React.useState(10);
-  const [sort, setSort] = React.useState('modify_date');
-  const [order, setOrder] = React.useState('desc');
 
 
 
@@ -37,37 +30,6 @@ const HorizontalList = ( { categoryId } ) => {
   //       : currentSelected.concat(id)
   //   );
   // }
-
-
-
-  React.useEffect(() => {
-    getContentsList();
-  }, []);
-
-  const getContentsList = () => {
-    API.getContentsNew(categoryId, sort, order, 1, size)
-        .then((result) => {
-          setContents(result.contents);
-        })
-        .catch((e) => {
-          console.log('err:', e)
-        })
-  }
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
 
 
 
@@ -133,11 +95,19 @@ const RightArrow = () => {
 }
 
 HorizontalList.propType = {
-  categoryId: PropTypes.number
+  categoryId: PropTypes.number,
+  contents: PropTypes.arrayOf(
+    PropTypes.shape({
+      contentsName: PropTypes.string,
+      categoryName: PropTypes.string,
+      contentsPath: PropTypes.string,
+    })
+  )
 }
 
 HorizontalList.defaultProps = {
-  categoryId: 0
+  categoryId: 0,
+  contents: []
 }
 
 export default HorizontalList;

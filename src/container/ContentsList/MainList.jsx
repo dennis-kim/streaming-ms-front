@@ -3,9 +3,28 @@ import './MainListStyle.css';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import HorizontalList from "./HorizontalList";
+import API from '../../api'
 
 const MainList = ({ categoryName, categoryId }) => {
-        return (
+
+    const [contents, setContents] = React.useState([]);
+
+    React.useEffect(() => {
+        getContentsList();
+      }, []);
+    
+    const getContentsList = () => {
+        API.getContentsNew(categoryId, 'modify_date', 'desc', 1, 10)
+            .then((result) => {
+              setContents(result.contents);
+            })
+            .catch((e) => {
+              console.log('err:', e)
+            })
+    }
+
+    return (
+        contents.length > 0 ?
             <div style={{ marginTop: "20px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginRight: "20px" }}>
                     <div id="FontCategory">
@@ -13,11 +32,13 @@ const MainList = ({ categoryName, categoryId }) => {
                     </div>
                     <Link to="#" id="FontMore">more</Link>
                 </div>
-                <HorizontalList 
+                <HorizontalList
                     categoryId={categoryId}
+                    contents={contents}
                 />
             </div>
-        );
+        : <></>
+    );
     
 }
 

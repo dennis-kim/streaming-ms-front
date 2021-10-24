@@ -7,6 +7,13 @@ body {
     /* background-color: #000000; */
     background-image: url('./img/pattern/footer_lodyas.png');
     padding-bottom: 50px;
+
+    -ms-overflow-style: none; /* IE and Edge Scollrbar none */
+    scrollbar-width: none; /* Firefox Scollrbar none */
+    
+}
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera Scrollbar none */
 }
 
 ul, li{
