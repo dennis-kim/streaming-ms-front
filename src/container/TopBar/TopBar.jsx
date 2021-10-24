@@ -17,7 +17,7 @@ const TopBar = () => {
  
     return (
         <>
-            <div className="topbar_container">
+            <div>
                 <div className="menu_box">
                     <SearchBar/>
                     {
