@@ -10,11 +10,13 @@ function getHeaders() {
 
 function parseContents(item) {
   const contentsName = item.contents_name;
+  const actors = item.actors;
   const categoryName = item.category_name;
   const contentsPath = item.contents_path;
 
   return {
     contentsName,
+    actors,
     categoryName,
     contentsPath,
   };

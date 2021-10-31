@@ -53,7 +53,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
                             
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                엠마왓슨 마크러팔러 크리스 에반스 크리스 햄스워스 이연걸
+                                {item.actors}
                             </Typography>
 
                             <Typography id="contentsPath" variant="body2" color="textSecondary" component="p" noWrap={true}>
@@ -73,6 +73,7 @@ ContentsItem.propType = {
     item: PropTypes.objectOf(
         PropTypes.shape({
           contentsName: PropTypes.string,
+          actors: PropTypes.string,
           categoryName: PropTypes.string,
           contentsPath: PropTypes.string,
           genre: PropTypes.string,
@@ -83,10 +84,11 @@ ContentsItem.propType = {
 
 ContentsItem.defaultProps = {
     item: {
-        contentsName: '',
+        contentsName: '-',
+        actors: '-',
         categoryName: '',
-        contentsPath: '',
-        genre: ''
+        contentsPath: '-',
+        genre: '-'
     },
     categoryHide: true
 }
