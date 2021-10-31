@@ -9,6 +9,19 @@
     font-weight: bold;
 }
 
+#newCard {
+    /* display: inline-flex; */
+    background: #ff5959;
+    opacity: 0.8;
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px 0px 0px 10px;
+    font-weight: bold;
+    float: right;
+}
+
 #contentsPath {
     font-weight: bold;
     color: rgb(223, 104, 104);

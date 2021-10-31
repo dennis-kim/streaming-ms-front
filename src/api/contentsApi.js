@@ -13,12 +13,14 @@ function parseContents(item) {
   const actors = item.actors;
   const categoryName = item.category_name;
   const contentsPath = item.contents_path;
+  const modifyDate = item.modify_date;
 
   return {
     contentsName,
     actors,
     categoryName,
     contentsPath,
+    modifyDate,
   };
 }
 
