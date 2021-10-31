@@ -41,6 +41,13 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                                     { item.categoryName }
                                 </div>
                             }
+
+                            {
+                                <div id="newCard">
+                                    new
+                                </div>
+
+                            }
                         </CardMedia>
                         
                         <CardContent>
