@@ -11,6 +11,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import moment from "moment";
 
 const useStyles = makeStyles({
     root: {
@@ -25,6 +26,11 @@ const useStyles = makeStyles({
 
 const ContentsItem = ({ index, item, categoryHide }) => {
     const classes = useStyles();
+
+    // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
+    const limitDays = -7
+    const contentsDate = moment(item.modifyDate)
+    const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
             
@@ -43,10 +49,10 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             }
 
                             {
-                                <div id="newCard">
-                                    new
-                                </div>
-
+                                numberOfDay > limitDays ? 
+                                    <div id="newCard">new</div> 
+                                    : 
+                                    <></>
                             }
                         </CardMedia>
                         
@@ -84,6 +90,7 @@ ContentsItem.propType = {
           categoryName: PropTypes.string,
           contentsPath: PropTypes.string,
           genre: PropTypes.string,
+          modifyDate: PropTypes.string
         })
     ),
     categoryHide: PropTypes.bool,
@@ -95,7 +102,8 @@ ContentsItem.defaultProps = {
         actors: '-',
         categoryName: '',
         contentsPath: '-',
-        genre: '-'
+        genre: '-',
+        modifyDate: '-'
     },
     categoryHide: true
 }
