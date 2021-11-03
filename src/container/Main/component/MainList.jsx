@@ -2,8 +2,8 @@ import React from "react";
 import './MainListStyle.css';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import HorizontalList from "./HorizontalList";
-import API from '../../api'
+import HorizontalList from "../../../component/List/HorizontalList/HorizontalList";
+import API from '../../../api'
 
 const MainList = ({ categoryName, categoryId }) => {
 
@@ -30,7 +30,7 @@ const MainList = ({ categoryName, categoryId }) => {
                     <div id="FontCategory">
                         { categoryName }
                     </div>
-                    <Link to="#" id="FontMore">more</Link>
+                    <Link to="#" id="FontMore">더보기</Link>
                 </div>
                 <HorizontalList
                     categoryId={categoryId}

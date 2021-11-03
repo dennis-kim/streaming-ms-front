@@ -1,35 +1,35 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import ContentsItem from '../../component/ContentsItem/ContentsItem';
+import ContentsItem from '../../ContentsItem/ContentsItem';
 import ArrowLeftIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowRightIcon from '@mui/icons-material/ArrowForwardIos';
-import API from '../../api'
+import API from '../../../api'
 
 
-// const getItems = () =>
-//   Array(20)
-//     .fill(0)
-//     .map((_, ind) => ({ id: `element-${ind}` }));
+const getItems = () =>
+  Array(20)
+    .fill(0)
+    .map((_, ind) => ({ id: `element-${ind}` }));
 
 const HorizontalList = ( { categoryId, contents } ) => {
-  // const [items, setItems] = React.useState(getItems);
-  // const [selected, setSelected] = React.useState([]);
-  // const [position, setPosition] = React.useState(0);
+  const [items, setItems] = React.useState(getItems);
+  const [selected, setSelected] = React.useState([]);
+  const [position, setPosition] = React.useState(0);
 
 
 
-  // const isItemSelected = (id) => !!selected.find((el) => el === id);
+  const isItemSelected = (id) => !!selected.find((el) => el === id);
 
-  // const handleClick = (id) => ({ getItemById, scrollToItem }) => {
-  //   const itemSelected = isItemSelected(id)
+  const handleClick = (id) => ({ getItemById, scrollToItem }) => {
+    const itemSelected = isItemSelected(id)
 
-  //   setSelected((currentSelected) =>
-  //     itemSelected
-  //       ? currentSelected.filter((el) => el !== id)
-  //       : currentSelected.concat(id)
-  //   );
-  // }
+    setSelected((currentSelected) =>
+      itemSelected
+        ? currentSelected.filter((el) => el !== id)
+        : currentSelected.concat(id)
+    );
+  }
 
 
 
