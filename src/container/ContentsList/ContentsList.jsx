@@ -4,14 +4,28 @@ import VerticalList from "../../component/List/VerticalList/VerticalList";
 
 const ContentsList = ({ match, history }) => {
 
+    window.scrollTo(0, 0);
+
     const categoryId = match.params.categoryId ? match.params.categoryId : 0
     if( categoryId > 5 ) {
         // 허용 카테고리 외 번호 입력시 강제 뒤로가기
         history.goBack();
     }
 
+    const category = {
+        0: '전체',
+        1: '드라마',
+        2: '예능',
+        3: '애니메이션',
+        4: '영화',
+        5: '다큐멘터리' 
+    }
+
     return (
         <>
+            <div id="FontCategory">
+                {category[categoryId]}
+            </div>
             <VerticalList categoryId={categoryId}/>
         </>
     );

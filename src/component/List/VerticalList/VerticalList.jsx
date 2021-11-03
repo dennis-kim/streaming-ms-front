@@ -1,110 +1,37 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import './style.css'
 import ContentsItem from "../../ContentsItem/ContentsItem";
-import { display } from "@mui/system";
+import API from '../../../api'
 
 const VerticalList = ({ categoryId }) => {
 
+    const [contents, setContents] = React.useState([]);
 
-    const contents = [
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-        {
-            contentsName: '-',
-            actors: '-',
-            categoryName: '',
-            contentsPath: '-',
-            genre: '-',
-            modifyDate: '2021-11-02'
-        },
-    ]
-
+    React.useEffect(() => {
+        getContentsList();
+      }, []);
+    
+    const getContentsList = () => {
+        API.getContentsNew(categoryId, 'modify_date', 'desc', 1, 500)
+            .then((result) => {
+              setContents(result.contents);
+            })
+            .catch((e) => {
+              console.log('err:', e)
+            })
+    }
 
     return (
-        <div style={{display:'flex'}}>
-            {contents.map((item, index) => <ContentsItem key={index} index={index} item={item} /> )}
-        </div>
+        <>
+            <div className="container">
+                <ul className="contents">
+                    {contents.map((item, index) => <li key={index}><ContentsItem key={index} index={index} item={item} categoryHide={categoryId!=0} /></li> )}
+                </ul>
+            </div>
+        </>
     );
 }
-
 
 VerticalList.propType = {
     categoryId: PropTypes.number.isRequired
@@ -113,5 +40,5 @@ VerticalList.propType = {
 VerticalList.defaultProps = {
     categoryId : 0
 }
-  
+
 export default VerticalList;

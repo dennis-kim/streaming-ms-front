@@ -3,8 +3,6 @@ import './style.css';
 import PropTypes from 'prop-types';
 import DefaultImage from './images/default.jpg';
 import IronmanImage from './images/ironman.jpeg';
-
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -33,11 +31,10 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
-            
-                <Card className={classes.root}>
+                <Card style={{ width: '350px', marginRight: '10px' }}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            style={{ height: '140px' }}
                             image={ index == 0 ? IronmanImage : DefaultImage}
                             title={ item.contentsName }
                         >
@@ -62,7 +59,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
 
                             <Typography variant="body2" color="textSecondary" component="p">
-                                코미디
+                                -{/* 장르 */}
                             </Typography>
                             
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>

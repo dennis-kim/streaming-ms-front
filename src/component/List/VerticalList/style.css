@@ -1,0 +1,36 @@
+/*
+https://100ah.tistory.com/entry/초초초-초간단-기본-반응형-갤러리-responsive-gallery-ul-li
+*/
+
+ul, li{
+    margin:0;
+    padding:0;
+    list-style:none
+} 
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    overflow:hidden;
+} 
+
+.contents{
+    margin:20px;
+    box-sizing:border-box;
+} 
+
+.contents:after{
+    content:"";
+    display:block;
+    clear:both;
+    visibility: hidden;
+} 
+
+.contents li{
+    float:left;
+    box-sizing:border-box;
+    padding:0 5px;
+    margin:0 0 20px 0;
+} 
+
