@@ -8,13 +8,14 @@ import API from '../../../api'
 const MainList = ({ categoryName, categoryId }) => {
 
     const [contents, setContents] = React.useState([]);
+    const limit = 10
 
     React.useEffect(() => {
         getContentsList();
       }, []);
     
     const getContentsList = () => {
-        API.getContentsNew(categoryId, 'modify_date', 'desc', 1, 10)
+        API.getContentsNew(categoryId, 'modify_date', 'desc', 1, limit)
             .then((result) => {
               setContents(result.contents);
             })
@@ -30,7 +31,9 @@ const MainList = ({ categoryName, categoryId }) => {
                     <div id="FontCategory">
                         { categoryName }
                     </div>
-                    <Link to="#" id="FontMore">더보기</Link>
+                    {
+                        contents.length > limit-1 ? <Link to={`/contents/${categoryId}`} id="FontMore">더보기</Link> : <></>
+                    }
                 </div>
                 <HorizontalList
                     categoryId={categoryId}
