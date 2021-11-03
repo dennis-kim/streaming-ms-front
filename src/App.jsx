@@ -19,7 +19,7 @@ const App = () => {
       <BrowserRouter>
         <Route exact path={["/"]} component={Main} />
         <Route path={["/contents"]} component={ContentsList} exact />
-        <Route path={["/contents/:baseId"]} component={ContentsList} />
+        <Route path={["/contents/:categoryId"]} component={ContentsList} />
       </BrowserRouter>
     </>
   );

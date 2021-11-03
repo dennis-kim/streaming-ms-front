@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import VerticalList from "../../component/List/VerticalList/VerticalList";
 
 const ContentsList = ({ match, history }) => {
 
-    const baseId = match.params.baseId ? match.params.baseId : 0
-    if( baseId > 5 ) {
+    const categoryId = match.params.categoryId ? match.params.categoryId : 0
+    if( categoryId > 5 ) {
         // 허용 카테고리 외 번호 입력시 강제 뒤로가기
         history.goBack();
     }
 
     return (
         <>
-            컨텐츠 리스트
+            <VerticalList categoryId={categoryId}/>
         </>
     );
 }
@@ -27,7 +28,7 @@ ContentsList.propType = {
 ContentsList.defaultProps = {
     match: {
         params: {
-            baseId: 0
+            categoryId: 0
         }
     }
 }

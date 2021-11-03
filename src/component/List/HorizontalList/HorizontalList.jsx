@@ -4,8 +4,6 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import ContentsItem from '../../ContentsItem/ContentsItem';
 import ArrowLeftIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowRightIcon from '@mui/icons-material/ArrowForwardIos';
-import API from '../../../api'
-
 
 const getItems = () =>
   Array(20)
@@ -30,9 +28,6 @@ const HorizontalList = ( { categoryId, contents } ) => {
         : currentSelected.concat(id)
     );
   }
-
-
-
 
   return (
         <ScrollMenu
