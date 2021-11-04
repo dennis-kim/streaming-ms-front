@@ -28,6 +28,8 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const isMobile = useMediaQuery("(max-width: 320px)");
     const isMobileForFold = useMediaQuery("(max-width: 740px)");
 
+    const THUMBNAIL_DEFAULT_URL = 'https://msnas.i234.me/streaming/etc/default.jpg'
+
     // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
     const limitDays = -7
     const contentsDate = moment(item.modifyDate)
@@ -38,7 +40,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                     <CardActionArea>
                         <CardMedia
                             style={{ height: '140px' }}
-                            image={ index == 0 ? IronmanImage : DefaultImage}
+                            image={ item.thumbnailURL === '-' ? THUMBNAIL_DEFAULT_URL : item.thumbnailURL }
                             title={ item.contentsName }
                         >
                             {
@@ -90,6 +92,7 @@ ContentsItem.propType = {
           categoryName: PropTypes.string,
           contentsPath: PropTypes.string,
           genre: PropTypes.string,
+          thumbnailURL: PropTypes.string,
           modifyDate: PropTypes.string
         })
     ),
@@ -101,6 +104,7 @@ ContentsItem.defaultProps = {
         contentsName: '-',
         actors: '-',
         categoryName: '',
+        thumbnailURL: '-',
         contentsPath: '-',
         genre: '-',
         modifyDate: '-'

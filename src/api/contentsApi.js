@@ -11,6 +11,7 @@ function getHeaders() {
 function parseContents(item) {
   const contentsName = item.contents_name;
   const actors = item.actors;
+  const thumbnailURL = item.thumbnail_url;
   const categoryName = item.category_name;
   const contentsPath = item.contents_path;
   const modifyDate = item.modify_date;
@@ -18,6 +19,7 @@ function parseContents(item) {
   return {
     contentsName,
     actors,
+    thumbnailURL,
     categoryName,
     contentsPath,
     modifyDate,
@@ -34,34 +36,7 @@ function parsePagination(_page, _size) {
   };
 }
 
-
 export function getContents(categoryId, sort, order,
-    page='1', size='10') {
-  const headers = getHeaders();
-  const url = `http://118.34.135.195:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
-  // const url = `http://localhost:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
-  const params = {
-    sort: sort,
-    order: order
-  }
-
-  return new Promise((resolve, reject) => {
-    axios.get(url, {params, headers})
-    .then((res) => {
-      console.log('res.data'+res.data[0].contents_name);
-      resolve(res.data)
-    })
-    .catch((e) => {
-      reject(e)
-    })
-  })
-}
-
-
-
-
-
-export function getContentsNew(categoryId, sort, order,
   page='1', size='10') {
     const headers = getHeaders();
     const url = `http://118.34.135.195:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;

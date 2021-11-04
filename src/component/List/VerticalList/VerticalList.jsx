@@ -13,7 +13,7 @@ const VerticalList = ({ categoryId }) => {
       }, []);
     
     const getContentsList = () => {
-        API.getContentsNew(categoryId, 'contents_name', 'asc', 1, 500)
+        API.getContents(categoryId, 'contents_name', 'asc', 1, 500)
             .then((result) => {
               setContents(result.contents);
             })
