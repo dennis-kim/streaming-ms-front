@@ -14,7 +14,7 @@ import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        width: '20px',
+        width: '250px',
         marginRight: '5px'
     },
     rootMobile: {
