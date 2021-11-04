@@ -17,6 +17,10 @@ const useStyles = makeStyles({
         width: '320px',
         marginRight: '10px'
     },
+    rootMobileForFold: {
+        width: '300px',
+        marginRight: '10px'
+    },
     rootMobile: {
         width: '250px',
         marginRight: '10px'
@@ -26,6 +30,7 @@ const useStyles = makeStyles({
 const ContentsItem = ({ index, item, categoryHide }) => {
     const classes = useStyles();
     const isMobile = useMediaQuery("(max-width: 320px)");
+    const isMobileForFold = useMediaQuery("(max-width: 740px)");
 
     // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
     const limitDays = -7
@@ -33,7 +38,9 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
-                <Card className={isMobile ? classes.rootMobile : classes.root}>
+                <Card className={isMobileForFold ? 
+                    (isMobile ? classes.rootMobile : classes.rootMobileForFold)
+                    : classes.root}>
                     <CardActionArea>
                         <CardMedia
                             style={{ height: '140px' }}
