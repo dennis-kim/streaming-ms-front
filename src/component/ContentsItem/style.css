@@ -27,3 +27,16 @@
     font-weight: bold;
     color: rgb(223, 104, 104);
 }
+
+#contents_item{
+    width: '50px';
+}
+
+/* @media (max-width:320px){ 
+    .contents_item{
+        width: '100px';
+    } 
+} */
+
+
+/* style={{ width: '300px', marginRight: '10px' } */

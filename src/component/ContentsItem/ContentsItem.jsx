@@ -10,20 +10,22 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import moment from "moment";
+import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-    //   maxWidth: 345,
-      width: 345,
-      marginRight: '10px'
+        width: '320px',
+        marginRight: '10px'
     },
-    media: {
-      height: 140,
+    rootMobile: {
+        width: '250px',
+        marginRight: '10px'
     },
   });
 
 const ContentsItem = ({ index, item, categoryHide }) => {
     const classes = useStyles();
+    const isMobile = useMediaQuery("(max-width: 320px)");
 
     // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
     const limitDays = -7
@@ -31,10 +33,10 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
-                <Card style={{ width: '300px', marginRight: '10px' }}>
+                <Card className={isMobile ? classes.rootMobile : classes.root}>
                     <CardActionArea>
                         <CardMedia
-                            style={{ width: '100%', height: '140px' }}
+                            style={{ height: '140px' }}
                             image={ index == 0 ? IronmanImage : DefaultImage}
                             title={ item.contentsName }
                         >
