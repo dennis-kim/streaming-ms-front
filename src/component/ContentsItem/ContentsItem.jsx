@@ -31,10 +31,10 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
-                <Card style={{ width: '350px', marginRight: '10px' }}>
+                <Card style={{ width: '300px', marginRight: '10px' }}>
                     <CardActionArea>
                         <CardMedia
-                            style={{ height: '140px' }}
+                            style={{ width: '100%', height: '140px' }}
                             image={ index == 0 ? IronmanImage : DefaultImage}
                             title={ item.contentsName }
                         >
