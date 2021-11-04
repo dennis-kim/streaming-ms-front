@@ -14,12 +14,8 @@ import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
-        width: '320px',
-        marginRight: '10px'
-    },
-    rootMobileForFold: {
         width: '300px',
-        marginRight: '10px'
+        marginRight: '5px'
     },
     rootMobile: {
         width: '250px',
@@ -38,9 +34,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
-                <Card className={isMobileForFold ? 
-                    (isMobile ? classes.rootMobile : classes.rootMobileForFold)
-                    : classes.root}>
+                <Card className={isMobile ? classes.rootMobile : classes.root}>
                     <CardActionArea>
                         <CardMedia
                             style={{ height: '140px' }}
