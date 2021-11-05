@@ -64,7 +64,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
 
                             <Typography variant="body2" color="textSecondary" component="p">
-                                -{/* 장르 */}
+                                {item.genre}
                             </Typography>
                             
                             <Typography variant="body2" color="textSecondary" component="p" noWrap={true}>
@@ -88,6 +88,7 @@ ContentsItem.propType = {
     item: PropTypes.objectOf(
         PropTypes.shape({
           contentsName: PropTypes.string,
+          genre: PropTypes.string,
           actors: PropTypes.string,
           categoryName: PropTypes.string,
           contentsPath: PropTypes.string,
@@ -102,6 +103,7 @@ ContentsItem.propType = {
 ContentsItem.defaultProps = {
     item: {
         contentsName: '-',
+        genre: '-',
         actors: '-',
         categoryName: '',
         thumbnailURL: '-',
