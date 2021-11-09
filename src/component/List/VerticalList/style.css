@@ -2,22 +2,14 @@
 https://100ah.tistory.com/entry/초초초-초간단-기본-반응형-갤러리-responsive-gallery-ul-li
 */
 
-ul, li{
-    margin:0;
-    padding:0;
-    list-style:none
-} 
-
 .container{
     width:100%;
     max-width:1490;
-    margin:0 auto;
-    overflow:hidden;
+    background-color: brown;
 } 
 
 .contents{
-    margin:20px;
-    box-sizing:border-box;
+    background-color: burlywood;
 } 
 
 .contents:after{
@@ -29,7 +21,5 @@ ul, li{
 
 .contents li{
     float:left;
-    box-sizing:border-box;
-    padding:0 0px;
     margin:0 0 20px 0;
 } 
