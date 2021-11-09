@@ -24,7 +24,7 @@ const VerticalList = ({ categoryId }) => {
 
     return (
         <>
-            <div className="container">
+            <div className="list_container">
                 <ul className="contents">
                     {contents.map((item, index) => <li key={index}><ContentsItem key={index} index={index} item={item} categoryHide={categoryId!=0} /></li> )}
                 </ul>

@@ -72,7 +72,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
 
                             <Typography id="contentsPath" variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                위치: {item.contentsPath}
+                                위치:{item.contentsPath}
                             </Typography> 
                         
                         </CardContent>
