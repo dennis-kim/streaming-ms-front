@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import Select from 'react-select'
-
+import React from 'react';
+import Select from 'react-select';
 
 const options = [
     { value: 'chocolateㅁㅁㅁ', label: '영화' },
@@ -8,13 +7,12 @@ const options = [
     { value: 'vanilla', label: '드라마' }
   ]
 
-class FilterBox extends Component {
-  render() {
+const FilterBox = () => {
+
     return (
         <div className="filterbox_container">
             <Select options={options}/>
         </div>
     );
-  }
 }
 export default FilterBox;
