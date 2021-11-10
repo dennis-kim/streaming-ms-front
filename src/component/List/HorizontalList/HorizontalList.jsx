@@ -31,8 +31,8 @@ const HorizontalList = ( { categoryId, contents } ) => {
 
   return (
         <ScrollMenu
-          LeftArrow={LeftArrow}
-          RightArrow={RightArrow}
+          // LeftArrow={LeftArrow}
+          // RightArrow={RightArrow}
           // onWheel
         >
 {/* 

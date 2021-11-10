@@ -15,13 +15,13 @@ import { useMediaQuery } from "@material-ui/core";
 const useStyles = makeStyles({
     root: {
         width: '280px',
-        marginLeft: '5px',
-        marginRight: '5px'
+        marginLeft: '10px',
+        marginRight: '10px'
     },
     rootMobile: {
         width: '250px',
-        marginLeft: '5px',
-        marginRight: '5px'
+        marginLeft: '10px',
+        marginRight: '10px'
     },
   });
 
@@ -39,7 +39,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
         return (
             <>
                 <Card className={isMobile ? classes.rootMobile : classes.root}>
-                    <CardActionArea>
+                    <CardActionArea style={{ background: '#FFF0BB' }}>
                         <CardMedia
                             style={{ height: '140px' }}
                             image={ item.thumbnailURL === '-' ? THUMBNAIL_DEFAULT_URL : item.thumbnailURL }
