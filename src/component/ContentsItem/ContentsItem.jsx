@@ -33,7 +33,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
     const THUMBNAIL_DEFAULT_URL = 'https://msnas.i234.me/streaming/etc/default.jpg'
 
     // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
-    const limitDays = -7
+    const limitDays = -4
     const contentsDate = moment(item.modifyDate)
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
