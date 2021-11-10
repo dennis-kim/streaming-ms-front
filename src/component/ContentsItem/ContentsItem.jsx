@@ -15,11 +15,13 @@ import { useMediaQuery } from "@material-ui/core";
 const useStyles = makeStyles({
     root: {
         width: '280px',
-        marginRight: '10px'
+        marginLeft: '5px',
+        marginRight: '5px'
     },
     rootMobile: {
         width: '250px',
-        marginRight: '10px'
+        marginLeft: '5px',
+        marginRight: '5px'
     },
   });
 
