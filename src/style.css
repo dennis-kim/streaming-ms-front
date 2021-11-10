@@ -4,7 +4,6 @@ body {
     max-width: 1490px;
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
-    /* background-color: #000000; */
     background-image: url('./img/pattern/footer_lodyas.png');
     padding-bottom: 50px;
     padding-left: 20px;
@@ -32,4 +31,9 @@ ul, li{
 @font-face {
     font-family: "DOHYEON";
     src: url('./fonts/DoHyeon-Regular.ttf');
+}
+
+@font-face {
+    font-family: "NANUM";
+    src: url('./fonts/NanumPenScript-Regular.ttf');
 }

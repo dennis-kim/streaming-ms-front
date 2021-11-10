@@ -1,17 +1,13 @@
 #FontCategory {
-    /* margin-top: 140px; */
-    /* left: 59%; */
-    /* position: absolute; */
-    font-family: "DOHYEON";
-    color: rgb(255, 255, 255);
-    font-size: 30px;
+    font-family: "NANUM";
+    color: rgb(179, 179, 179);
+    font-size: 50px;
 }
 
 #FontMore {
-    /* margin-top: 140px; */
-    /* left: 59%; */
-    /* position: absolute; */
     font-family: "DOHYEON";
     color: rgb(255, 255, 255);
     font-size: 20px;
 }
+
+
