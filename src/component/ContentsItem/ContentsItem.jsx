@@ -39,7 +39,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
         return (
             <>
                 <Card className={isMobile ? classes.rootMobile : classes.root}>
-                    <CardActionArea style={{ background: '#FFF0BB' }}>
+                    <CardActionArea style={{ background: '#E7E7E7' }}>
                         <CardMedia
                             style={{ height: '140px' }}
                             image={ item.thumbnailURL === '-' ? THUMBNAIL_DEFAULT_URL : item.thumbnailURL }
@@ -68,6 +68,8 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             <Typography gutterBottom variant="subtitle2" noWrap={true}>
                                 {item.subContentsName ? item.subContentsName : '-'}
                             </Typography>
+
+                            <hr style={{ border: 'solid 0.1em #DCDCDC' }}/>
 
                             <Typography variant="body2" color="textSecondary" component="p">
                                 {item.genre}
