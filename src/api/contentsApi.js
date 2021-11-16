@@ -10,6 +10,7 @@ function getHeaders() {
 
 function parseContents(item) {
   const contentsName = item.contents_name;
+  const subContentsName = item.sub_contents_name;
   const genre = item.genre;
   const actors = item.actors;
   const thumbnailURL = item.thumbnail_url;
@@ -19,6 +20,7 @@ function parseContents(item) {
 
   return {
     contentsName,
+    subContentsName,
     genre,
     actors,
     thumbnailURL,

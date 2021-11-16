@@ -65,6 +65,10 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                                 {item.contentsName}
                             </Typography>
 
+                            <Typography gutterBottom variant="subtitle2" noWrap={true}>
+                                {item.subContentsName ? item.subContentsName : '-'}
+                            </Typography>
+
                             <Typography variant="body2" color="textSecondary" component="p">
                                 {item.genre}
                             </Typography>
@@ -90,6 +94,7 @@ ContentsItem.propType = {
     item: PropTypes.objectOf(
         PropTypes.shape({
           contentsName: PropTypes.string,
+          subContentsName: PropTypes.string,
           genre: PropTypes.string,
           actors: PropTypes.string,
           categoryName: PropTypes.string,
@@ -105,6 +110,7 @@ ContentsItem.propType = {
 ContentsItem.defaultProps = {
     item: {
         contentsName: '-',
+        subContentsName: '-',
         genre: '-',
         actors: '-',
         categoryName: '',
