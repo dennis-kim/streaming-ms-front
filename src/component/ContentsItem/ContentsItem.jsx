@@ -66,7 +66,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
 
                             <Typography gutterBottom variant="subtitle2" noWrap={true}>
-                                {item.subContentsName ? item.subContentsName : '-'}
+                                {item.subContentsName == '-' ? "\u00a0" : item.subContentsName}
                             </Typography>
 
                             <hr style={{ border: 'solid 0.1em #DCDCDC' }}/>
