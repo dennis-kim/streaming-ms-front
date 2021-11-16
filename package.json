@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": ".",
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod",
     "start": "webpack-dev-server --config ./config/webpack.config.dev --hot"
