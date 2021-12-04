@@ -1,10 +1,12 @@
 import React from 'react';
 import MainList from './component/MainList';
+import TopBar from '../TopBar/TopBar';
 
 const Main = ({ }) => {
 
     return (
         <>
+            <TopBar />
             <MainList categoryName={"전체"} categoryId={0} />
             <MainList categoryName={"영화"} categoryId={4} />
             <MainList categoryName={"예능"} categoryId={2} />

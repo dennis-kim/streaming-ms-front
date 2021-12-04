@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <>
-      <TopBar />
+      {/* <TopBar /> */}
       <BrowserRouter>
         <Route exact path={["/"]} component={Main} />
         <Route path={["/contents"]} component={ContentsList} exact />
