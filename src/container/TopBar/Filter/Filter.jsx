@@ -6,9 +6,9 @@ const Filter = ( {  } ) => {
     return (
 
         <>
-            <div style={{background:'red'}}>
+            {/* <div style={{background:'red'}}>
                 필터 컨테이너
-            </div>
+            </div> */}
         </>
     )
 }

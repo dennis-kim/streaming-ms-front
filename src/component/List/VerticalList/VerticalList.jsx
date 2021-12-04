@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css'
 import ContentsItem from "../../ContentsItem/ContentsItem";
 import API from '../../../api'
-import Series from "./series/Series";
+import Filter from "./filter/Filter";
 
 const VerticalList = ({ categoryId }) => {
 
@@ -25,7 +25,10 @@ const VerticalList = ({ categoryId }) => {
 
     return (
         <>
-            <Series categoryId={categoryId}/>
+            <div style={{ padding: '10px' }}>
+                <Filter categoryId={categoryId}/>
+            </div>
+
             <div className="list_container">
                 <ul className="contents">
                     {contents.map((item, index) => <li key={index}><ContentsItem key={index} index={index} item={item} categoryHide={categoryId!=0} /></li> )}
