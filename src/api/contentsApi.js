@@ -43,6 +43,18 @@ function parseGenres(item) {
   };
 }
 
+function parseSeries(item) {
+  const seriesId = item.series_id;
+  const seriesName = item.series_name;
+  const isClick = false;
+
+  return {
+    seriesId,
+    seriesName,
+    isClick,
+  };
+}
+
 function parsePagination(_page, _size) {
   const page = _page;
   const size = _size;
@@ -91,6 +103,25 @@ export function getGenres(categoryId) {
         const genres = items.map((item) => parseGenres(item));
         resolve({
           genres
+        });
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function getSeries(categoryId) {
+  const headers = getHeaders();
+  const url = `http://${DOMAIN}:${PORT}/series/${categoryId}`;
+  return new Promise((resolve, reject) => {
+    axios.get(url, { headers })
+      .then((res) => {
+        const items = res.data;
+
+        const series = items.map((item) => parseSeries(item));
+        resolve({
+          series
         });
       })
       .catch((e) => {

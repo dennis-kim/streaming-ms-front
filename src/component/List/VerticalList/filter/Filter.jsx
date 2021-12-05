@@ -7,32 +7,27 @@ import Button from '../../../Button/OnAndOff/OnAndOffButton';
 const Series = ({ categoryId }) => {
     
     const [genreList, setGenreList] = React.useState([]);
+    const [seriesList, setSeriesList] = React.useState([]);
 
     React.useEffect(() => {
         getGenres();
+        getSeries();
     }, []);
-
-    
-
-    const [seriesList, setSeriesList] = React.useState([
-        {
-            seriesName: '마블',
-            isClick: false
-        },
-        {
-            seriesName: 'DC',
-            isClick: false
-        },
-        {
-            seriesName: '강철비',
-            isClick: false
-        }
-    ]);
 
     const getGenres = () => {
         API.getGenres(categoryId)
             .then((result) => {
                 setGenreList(result.genres);
+            })
+            .catch((e) => {
+                console.log('err:', e)
+            })
+    }
+
+    const getSeries = () => {
+        API.getSeries(categoryId)
+            .then((result) => {
+                setSeriesList(result.series);
             })
             .catch((e) => {
                 console.log('err:', e)
