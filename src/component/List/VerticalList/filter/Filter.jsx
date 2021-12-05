@@ -1,24 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import API from '../../../../api';
 import './style.css';
 import Button from '../../../Button/OnAndOff/OnAndOffButton';
 
 const Series = ({ categoryId }) => {
+    
+    const [genreList, setGenreList] = React.useState([]);
 
-    const [genreList, setGenreList] = React.useState([
-        {
-            genreName: '드라마',
-            isClick: false
-        },
-        {
-            genreName: '액션',
-            isClick: false
-        },
-        {
-            genreName: '로맨스',
-            isClick: false
-        }
-    ]);
+    React.useEffect(() => {
+        getGenres();
+    }, []);
+
+    
 
     const [seriesList, setSeriesList] = React.useState([
         {
@@ -34,6 +28,17 @@ const Series = ({ categoryId }) => {
             isClick: false
         }
     ]);
+
+    const getGenres = () => {
+        API.getGenres(categoryId)
+            .then((result) => {
+                setGenreList(result.genres);
+            })
+            .catch((e) => {
+                console.log('err:', e)
+            })
+    }
+
 
     const selectedGenre = (index) => {
         let newGenreList = genreList.map((item, i) => {
@@ -79,7 +84,7 @@ const Series = ({ categoryId }) => {
                         genreList.map((item, index) => {
                             return (
                                 <div key={index} style={{ float:'left', padding:'5px' }}>
-                                    <Button key={index} title={item.genreName} selected={item.isClick} handlerClick={() => handlerGenreClick(index)}/>
+                                    <Button key={index} title={item.genre} selected={item.isClick} handlerClick={() => handlerGenreClick(index)}/>
                                 </div>
                             )
                         })

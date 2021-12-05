@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseURL = '';
+const DOMAIN = 'msnas.i234.me';
+const PORT = '9000';
 
 function getHeaders() {
     return {
@@ -30,6 +31,18 @@ function parseContents(item) {
   };
 }
 
+function parseGenres(item) {
+  const genreId = item.genre_id;
+  const genre = item.genre;
+  const isClick = false;
+
+  return {
+    genreId,
+    genre,
+    isClick,
+  };
+}
+
 function parsePagination(_page, _size) {
   const page = _page;
   const size = _size;
@@ -43,8 +56,7 @@ function parsePagination(_page, _size) {
 export function getContents(categoryId, sort, order,
   page='1', size='10') {
     const headers = getHeaders();
-    const url = `http://118.34.135.195:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
-    // const url = `http://localhost:9000/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
+    const url = `http://${DOMAIN}:${PORT}/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
     const params = {
       sort: sort,
       order: order
@@ -57,7 +69,6 @@ export function getContents(categoryId, sort, order,
         const pagination = parsePagination(page, size);
         const contents = items.map((item) => parseContents(item));
         
-        // console.log('before : ' + JSON.stringify(contents));
         resolve({
           pagination,
           contents
@@ -69,7 +80,21 @@ export function getContents(categoryId, sort, order,
   });
 }
 
+export function getGenres(categoryId) {
+    const headers = getHeaders();
+    const url = `http://${DOMAIN}:${PORT}/genres/${categoryId}`;
+  return new Promise((resolve, reject) => {
+    axios.get(url, { headers })
+      .then((res) => {
+        const items = res.data;
 
-
-
-
+        const genres = items.map((item) => parseGenres(item));
+        resolve({
+          genres
+        });
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './style.css'
 import ContentsItem from "../../ContentsItem/ContentsItem";
-import API from '../../../api'
+import API from '../../../api';
 import Filter from "./filter/Filter";
 
 const VerticalList = ({ categoryId }) => {
