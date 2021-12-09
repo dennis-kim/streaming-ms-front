@@ -4,7 +4,7 @@ import API from '../../../../api';
 import './style.css';
 import Button from '../../../Button/OnAndOff/OnAndOffButton';
 
-const Series = ({ categoryId }) => {
+const Filter = ({ categoryId, refreshList, setSeriesId }) => {
     
     const [genreList, setGenreList] = React.useState([]);
     const [seriesList, setSeriesList] = React.useState([]);
@@ -65,6 +65,8 @@ const Series = ({ categoryId }) => {
 
     const handlerSeriesClick = (index) => {
         selectedSeries(index);
+        setSeriesId(seriesList[index].seriesId);
+        refreshList();
     }
 
     return (
@@ -109,12 +111,14 @@ const Series = ({ categoryId }) => {
     )
 }
 
-Series.propType = {
-    categoryId: PropTypes.number.isRequired
+Filter.propType = {
+    categoryId: PropTypes.number.isRequired,
+    refreshList: PropTypes.func.isRequired,
+    setSeriesId: PropTypes.func.isRequired,
 }
   
-Series.defaultProps = {
+Filter.defaultProps = {
     categoryId : 0
 }
 
-export default Series;
+export default Filter;

@@ -65,10 +65,18 @@ function parsePagination(_page, _size) {
   };
 }
 
-export function getContents(categoryId, sort, order,
-  page='1', size='10') {
+export function getContents(categoryId, seriesId, sort, order, page='1', size='10') {
     const headers = getHeaders();
-    const url = `http://${DOMAIN}:${PORT}/contents/${categoryId}?sort=${sort}&order=${order}&page=${page}&size=${size}`;
+    let url = `http://${DOMAIN}:${PORT}`;
+    url += `/contents/${categoryId}`
+    url += `?`
+
+    if(seriesId > 0) {
+      url += `&series=${seriesId}`
+    }
+
+    url += `&sort=${sort}&order=${order}&page=${page}&size=${size}`;
+
     const params = {
       sort: sort,
       order: order

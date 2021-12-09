@@ -8,25 +8,32 @@ import Filter from "./filter/Filter";
 const VerticalList = ({ categoryId }) => {
 
     const [contents, setContents] = React.useState([]);
+    const [seriesId, setSeriesId] = React.useState(0);
 
     React.useEffect(() => {
         getContentsList();
       }, []);
     
     const getContentsList = () => {
-        API.getContents(categoryId, 'contents_name', 'asc', 1, 500)
+        API.getContents(categoryId, seriesId, 'contents_name', 'asc', 1, 500)
             .then((result) => {
-              setContents(result.contents);
+                console.log(result.contents)
+                setContents(result.contents);
             })
             .catch((e) => {
-              console.log('err:', e)
+                console.log('err:', e)
             })
+    }
+
+    const refreshList = () => {
+        console.log('refresh')
+        getContentsList();
     }
 
     return (
         <>
             <div style={{ padding: '10px' }}>
-                <Filter categoryId={categoryId}/>
+                <Filter categoryId={categoryId} refreshList={refreshList} setSeriesId={setSeriesId} />
             </div>
 
             <div className="list_container">

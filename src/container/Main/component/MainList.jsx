@@ -15,7 +15,7 @@ const MainList = ({ categoryName, categoryId }) => {
       }, []);
     
     const getContentsList = () => {
-        API.getContents(categoryId, 'modify_date', 'desc', 1, limit)
+        API.getContents(categoryId, 0, 'modify_date', 'desc', 1, limit)
             .then((result) => {
               setContents(result.contents);
             })
