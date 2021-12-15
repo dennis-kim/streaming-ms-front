@@ -17,7 +17,6 @@ const VerticalList = ({ categoryId }) => {
     const getContentsList = () => {
         API.getContents(categoryId, seriesId, 'contents_name', 'asc', 1, 500)
             .then((result) => {
-                console.log(result.contents)
                 setContents(result.contents);
             })
             .catch((e) => {
@@ -26,7 +25,6 @@ const VerticalList = ({ categoryId }) => {
     }
 
     const refreshList = () => {
-        console.log('refresh')
         getContentsList();
     }
 

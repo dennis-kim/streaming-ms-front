@@ -34,7 +34,6 @@ const CategoryList = () => {
     })
 
     const click = () => {
-        console.log('click')
         categories[0].selected=false
     }
 

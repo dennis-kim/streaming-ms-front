@@ -1,8 +1,6 @@
 import React from "react";
 import './style.css';
 import PropTypes from 'prop-types';
-import DefaultImage from './images/default.jpg';
-import IronmanImage from './images/ironman.jpeg';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -25,7 +23,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ContentsItem = ({ index, item, categoryHide }) => {
+const ContentsItem = ({ item, categoryHide }) => {
     const classes = useStyles();
     const isMobile = useMediaQuery("(max-width: 320px)");
     const isMobileForFold = useMediaQuery("(max-width: 740px)");
@@ -34,7 +32,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
 
     // 7일 이내 업데이트 된 컨텐츠이면 new 아이콘 표시
     const limitDays = -4
-    const contentsDate = moment(item.modifyDate)
+    const contentsDate = moment(item.modify_date)
     const numberOfDay = contentsDate.diff(moment.now(), 'days')
         return (
             <>
@@ -42,13 +40,13 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                     <CardActionArea style={{ background: '#E7E7E7' }}>
                         <CardMedia
                             style={{ height: '140px' }}
-                            image={ item.thumbnailURL === '-' ? THUMBNAIL_DEFAULT_URL : item.thumbnailURL }
-                            title={ item.contentsName }
+                            image={ item.thumbnail_url === '-' ? THUMBNAIL_DEFAULT_URL : item.thumbnail_url }
+                            title={ item.contents_name }
                         >
                             {
                                 categoryHide ? <></> : 
                                 <div id="categoryNameCard">
-                                    { item.categoryName }
+                                    { item.category_name }
                                 </div>
                             }
 
@@ -62,11 +60,11 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                         
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="h2" noWrap={true}>
-                                {item.contentsName}
+                                {item.contents_name}
                             </Typography>
 
                             <Typography gutterBottom variant="subtitle2" noWrap={true}>
-                                {item.subContentsName == '-' ? "\u00a0" : item.subContentsName}
+                                {item.sub_contents_name == '-' ? "\u00a0" : item.sub_contents_name}
                             </Typography>
 
                             <hr style={{ border: 'solid 0.1em #DCDCDC' }}/>
@@ -80,7 +78,7 @@ const ContentsItem = ({ index, item, categoryHide }) => {
                             </Typography>
 
                             <Typography id="contentsPath" variant="body2" color="textSecondary" component="p" noWrap={true}>
-                                위치:{item.contentsPath}
+                                위치:{item.contents_path}
                             </Typography> 
                         
                         </CardContent>
@@ -95,15 +93,15 @@ ContentsItem.propType = {
     index: PropTypes.number,
     item: PropTypes.objectOf(
         PropTypes.shape({
-          contentsName: PropTypes.string,
-          subContentsName: PropTypes.string,
-          genre: PropTypes.string,
-          actors: PropTypes.string,
-          categoryName: PropTypes.string,
-          contentsPath: PropTypes.string,
-          genre: PropTypes.string,
-          thumbnailURL: PropTypes.string,
-          modifyDate: PropTypes.string
+            contents_name: PropTypes.string,
+            sub_contents_name: PropTypes.string,
+            genre: PropTypes.string,
+            actors: PropTypes.string,
+            category_name: PropTypes.string,
+            contents_path: PropTypes.string,
+            genre: PropTypes.string,
+            thumbnail_url: PropTypes.string,
+            modify_date: PropTypes.string
         })
     ),
     categoryHide: PropTypes.bool,
@@ -111,15 +109,15 @@ ContentsItem.propType = {
 
 ContentsItem.defaultProps = {
     item: {
-        contentsName: '-',
-        subContentsName: '-',
+        contents_name: '-',
+        sub_contents_name: '-',
         genre: '-',
         actors: '-',
-        categoryName: '',
-        thumbnailURL: '-',
-        contentsPath: '-',
+        category_name: '',
+        thumbnail_url: '-',
+        contents_path: '-',
         genre: '-',
-        modifyDate: '-'
+        modify_date: '-'
     },
     categoryHide: true
 }

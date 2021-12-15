@@ -12,9 +12,6 @@ const TopBar = ( {match} ) => {
     const switchOfFilter = () => {
         setHideOfFilter(!hideOfFilter)
     }
-
-    // const categoryId = match.params.categoryId ? match.params.categoryId : 0
-    // console.log(match)
  
     return (
         <>

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux"
+import { fetchMainContentsList, FETCH_MAIN_CONTENTS_LIST } from './reducer/contents';
+import ProgressBar from '../../component/ProgressBar/ProgressBar';
 import MainList from './component/MainList';
 import TopBar from '../TopBar/TopBar';
-import { fetchMainContentsList, FETCH_MAIN_CONTENTS_LIST } from './reducer/contents';
 
 const Main = ({ }) => {
 
@@ -21,18 +22,16 @@ const Main = ({ }) => {
     return (
         <>
             <TopBar />
+            <ProgressBar isLoading={isLoading}/>
             {
-                isLoading && "...loading" 
-            }
-            {
-                mainContents && (
+                !isLoading && mainContents && (
                     <>
-                        <MainList categoryName={"전체"} categoryId={0} mainContents={mainContents[0]} />
-                        <MainList categoryName={"영화"} categoryId={4} mainContents={mainContents[4]}/>
-                        <MainList categoryName={"예능"} categoryId={2} mainContents={mainContents[2]}/>
-                        <MainList categoryName={"드라마"} categoryId={1} mainContents={mainContents[1]}/>
-                        <MainList categoryName={"애니메이션"} categoryId={3} mainContents={mainContents[3]}/>
-                        <MainList categoryName={"다큐멘터리"} categoryId={5} mainContents={mainContents[5]}/>
+                        <MainList categoryName={"전체"} categoryId={0} contents={mainContents[0]} />
+                        <MainList categoryName={"영화"} categoryId={4} contents={mainContents[4]}/>
+                        <MainList categoryName={"예능"} categoryId={2} contents={mainContents[2]}/>
+                        <MainList categoryName={"드라마"} categoryId={1} contents={mainContents[1]}/>
+                        <MainList categoryName={"애니메이션"} categoryId={3} contents={mainContents[3]}/>
+                        <MainList categoryName={"다큐멘터리"} categoryId={5} contents={mainContents[5]}/>
                     </>
                 )
             }
