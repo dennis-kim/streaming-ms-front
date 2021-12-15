@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import ContentsItem from '../../ContentsItem/ContentsItem';
+import ContentsItem from '../../../../component/ContentsItem/ContentsItem';
 import ArrowLeftIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowRightIcon from '@mui/icons-material/ArrowForwardIos';
 

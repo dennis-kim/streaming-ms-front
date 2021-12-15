@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { fetchMainContentsList, FETCH_MAIN_CONTENTS_LIST } from './reducer/contents';
 import ProgressBar from '../../component/ProgressBar/ProgressBar';
-import MainList from './component/MainList';
+import MainList from './list/MainList';
 import TopBar from '../TopBar/TopBar';
 
 const Main = ({ }) => {

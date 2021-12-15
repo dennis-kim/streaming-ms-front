@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import VerticalList from "../../component/List/VerticalList/VerticalList";
+import VerticalList from "./component/VerticalList";
 
 const ContentsList = ({ match, history }) => {
 

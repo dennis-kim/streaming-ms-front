@@ -2,7 +2,7 @@ import React from "react";
 import './MainListStyle.css';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import HorizontalList from "../../../component/List/HorizontalList/HorizontalList";
+import HorizontalList from "./component/HorizontalList";
 
 const MainList = ({ categoryName, categoryId, contents }) => {
     const limit = 10

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import API from '../../../../api';
 import './style.css';
-import Button from '../../../Button/OnAndOff/OnAndOffButton';
+import Button from '../../../../component/Button/OnAndOff/OnAndOffButton';
 
 const Filter = ({ categoryId, refreshList, setSeriesId }) => {
     
