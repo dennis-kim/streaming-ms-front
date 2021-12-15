@@ -1,6 +1,6 @@
 import { createAction, handleActions } from "redux-actions";
 import { takeLatest, call, put } from "redux-saga/effects";
-import { fetchItemListApi } from "../lib/api";
+import { fetchMainContentsApi } from "../../../api/contentsTestAPI";
 
 import { startLoading, endLoading } from "../../reducer/loading";
 
@@ -20,10 +20,8 @@ export const fetchMainContentsList = createAction(FETCH_MAIN_CONTENTS_LIST);
 function* fetchMainContentsListSaga() {
     yield put(startLoading(FETCH_MAIN_CONTENTS_LIST)) // 목록 조회 전 로딩 시작( FETCH_ITEM_LIST 에 대한 로딩 )
     try {
-        
-        const response = yield call(fetchItemListApi)   // todo api 개발후 적용해야함
-        console.log(response)
-        yield put(fetchListSuccess(response.data.data))
+        const response = yield call(fetchMainContentsApi)   // todo api 개발후 적용해야함
+        yield put(fetchListSuccess(response.data))
     } catch(e) {
         yield put(fetchListFailure(e))
     }

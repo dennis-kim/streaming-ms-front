@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import HorizontalList from "../../../component/List/HorizontalList/HorizontalList";
 import API from '../../../api'
 
-const MainList = ({ categoryName, categoryId }) => {
+const MainList = ({ categoryName, categoryId, mainContents }) => {
 
     const [contents, setContents] = React.useState([]);
     const limit = 10
+
+    console.log(mainContents)
 
     React.useEffect(() => {
         getContentsList();
