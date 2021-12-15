@@ -2,17 +2,17 @@ import { combineReducers } from "redux" ;
 import { all } from "redux-saga/effects"; 
 
 import loading from "../container/reducer/loading";
-// import item, { contentsSaga } from "./item";
+import mainContents, { mainContentsSaga } from "../container/Main/reducer/contents";
 
 
 const rootReducer = combineReducers({
     loading
-    // , item
+    , mainContents
 })
 
 export function* rootSaga() {   // saga(비동기 사용시에 추가)
     yield all([
-        // contentsSaga()
+        mainContentsSaga()
     ])
 }
 
