@@ -26,7 +26,7 @@ const ContentsList = ({ match, history }) => {
             <div id="FontCategory">
                 {category[categoryId]}
             </div>
-            <VerticalList categoryId={categoryId}/>
+            <VerticalList categoryId={4}/>
         </>
     );
 }

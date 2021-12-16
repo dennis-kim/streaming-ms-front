@@ -1,42 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from 'prop-types';
 import './style.css'
+import { useDispatch, useSelector } from "react-redux"
+import { fetchContentsList, FETCH_CONTENTS_LIST } from '../reducer/contents';
+import ProgressBar from '../../../component/ProgressBar/ProgressBar';
 import ContentsItem from "../../../component/ContentsItem/ContentsItem";
 import API from '../../../api';
 import Filter from "./filter/Filter";
 
 const VerticalList = ({ categoryId }) => {
 
-    const [contents, setContents] = React.useState([]);
-    const [seriesId, setSeriesId] = React.useState(0);
 
-    React.useEffect(() => {
-        getContentsList();
-      }, []);
+    const dispatch = useDispatch()
+    const { contents, isLoading } = useSelector(({ contents, loading }) => ({
+        contents: contents.contents,
+        isLoading: loading[FETCH_CONTENTS_LIST]
+    }))
     
-    const getContentsList = () => {
-        API.getContents(categoryId, seriesId, 'contents_name', 'asc', 1, 500)
-            .then((result) => {
-                setContents(result.contents);
-            })
-            .catch((e) => {
-                console.log('err:', e)
-            })
+    const filter = {
+        categoryId: categoryId
+        , sort: 'modify_date'
+        , order: 'desc'
+        , page: 1
+        , size: 700
+        , series: 0
     }
-
-    const refreshList = () => {
-        getContentsList();
-    }
+    useEffect(() => {
+        dispatch(fetchContentsList(filter))
+    }, [dispatch])
 
     return (
         <>
             <div style={{ padding: '10px' }}>
-                <Filter categoryId={categoryId} refreshList={refreshList} setSeriesId={setSeriesId} />
+                {/* <Filter categoryId={categoryId} refreshList={refreshList} setSeriesId={setSeriesId} /> */}
             </div>
 
             <div className="list_container">
                 <ul className="contents">
-                    {contents.map((item, index) => <li key={index}><ContentsItem key={index} index={index} item={item} categoryHide={categoryId!=0} /></li> )}
+                    { contents && contents.map((item, index) => <li key={index}><ContentsItem key={index} index={index} item={item} categoryHide={categoryId!=0} /></li> )}
                 </ul>
             </div>
         </>
